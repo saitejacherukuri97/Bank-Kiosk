@@ -1,0 +1,97 @@
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body> <br>
+   <h1 style="text-align:center"> Emotion analysis for application screens</h1>
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+
+    var allLabels = ['Happy', 'Sad', 'Neutral', 'Angry', 'Disgust'];
+
+var allValues = [
+  [68, 17, 25, 8, 1],
+  [28, 11, 26, 10, 4],
+  [55, 19, 30, 14, 3],
+  [31, 14, 29, 18, 1]
+];
+
+var ultimateColors = [
+  ['rgb(56, 75, 126)', 'rgb(18, 36, 37)', 'rgb(34, 53, 101)', 'rgb(36, 55, 57)', 'rgb(6, 4, 4)'],
+  ['rgb(177, 127, 38)', 'rgb(205, 152, 36)', 'rgb(99, 79, 37)', 'rgb(129, 180, 179)', 'rgb(124, 103, 37)'],
+  ['rgb(33, 75, 99)', 'rgb(79, 129, 102)', 'rgb(151, 179, 100)', 'rgb(175, 49, 35)', 'rgb(36, 73, 147)'],
+  ['rgb(146, 123, 21)', 'rgb(177, 180, 34)', 'rgb(206, 206, 40)', 'rgb(175, 51, 21)', 'rgb(35, 36, 21)']
+];
+
+var data = [{
+  values: allValues[0],
+  labels: allLabels,
+  type: 'pie',
+  name: 'Face Recognition for customers',
+  marker: {
+    colors: ultimateColors[0]
+  },
+  domain: {
+    row: 0,
+    column: 0
+  },
+  hoverinfo: 'label+percent+name',
+  textinfo: 'none'
+},{
+  values: allValues[1],
+  labels: allLabels,
+  type: 'pie',
+  name: 'QR code for representative',
+  marker: {
+    colors: ultimateColors[1]
+  },
+  domain: {
+    row: 1,
+    column: 0
+  },
+  hoverinfo: 'label+percent+name',
+  textinfo: 'none'
+},{
+  values: allValues[2],
+  labels: allLabels,
+  type: 'pie',
+  name: 'new Customer registration',
+  marker: {
+    colors: ultimateColors[2]
+  },
+  domain: {
+    row: 0,
+    column: 1
+  },
+  hoverinfo: 'label+percent+name',
+  textinfo: 'none'
+},{
+  values: allValues[3],
+  labels: allLabels,
+  type: 'pie',
+  name: 'Services',
+  marker: {
+    colors: ultimateColors[3]
+  },
+  domain: {
+    x: [0.52,1],
+    y: [0, 0.48]
+  },
+  hoverinfo: 'label+percent+name',
+  textinfo: 'none'
+}];
+
+var layout = {
+  title: 'Emotion',
+  showlegend: true,
+  grid: {rows: 2, columns: 2},
+  height: 800,
+  width: 800,
+
+};
+
+Plotly.newPlot('myDiv', data, layout, {showSendToCloud:true});
+
+  </script>
+</body>

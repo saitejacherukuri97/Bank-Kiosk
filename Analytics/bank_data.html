@@ -1,0 +1,30 @@
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+   <h1 style="text-align:center"> Number of requests for IBG and CBG customers</h1>
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+    var trace1 = {
+x: ['Cheque_book', 'Account opening', 'Account closure', 'Address change', 'Debit card Request'],
+y: [142, 84, 87, 103, 25],
+name: 'IBG',
+type: 'bar'
+};
+
+var trace2 = {
+x: ['Cheque_book', 'Account opening', 'Account closure', 'Address change', 'Debit card Request'],
+y: [91, 53, 83, 49, 24],
+name: 'CBG',
+type: 'bar'
+};
+
+var data = [trace1, trace2];
+var layout = {barmode: 'group'};
+
+
+Plotly.newPlot('myDiv', data, layout, {}, {showSendToCloud:true});
+  </script>
+</body>

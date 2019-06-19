@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ATM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <script src="js/atm.js" type="text/javascript"> </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  </head>
+  <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+     <header> <img src="images/DBSlogo.png" height="58px" width="140px" style="float:left"> WELCOME TO DBS KIOSK </header>
+
+   <br>
+    <h2 id="wc" style="text-align:center">
+    </h2>
+    <button class="btn btn-danger" style="margin-left:1200px;font-size:20px" onclick="location.href='customerRating.html'">Exit</button>
+
+    <div class="container" style="margin-top:100px;">
+          <div class="card center">
+                  <div class="card-content">
+                          <div>
+                             <button type="button" class="btn btn-outline-secondary" style="margin-left:260px">Balance check</button>
+                             <button type="button" class="btn btn-outline-secondary" style="margin-left:140px">New products</button>
+                          </div> <br> <br>
+                          <div style="text-align:center" style="margin-top:100px">
+                             <button type="button" class="btn btn-outline-secondary" style="margin-left:-170px">Cheque deposit</button>
+                             <button type="button" class="btn btn-outline-secondary" style="margin-left:110px">Transaction status</button>
+                          </div> <br> <br>
+                          <div style="text-align:center" style="margin-top:100px">
+                             <button type="button" class="btn btn-outline-secondary" style="margin-left:-150px">Documents submission</button>
+                             <button type="button" class="btn btn-outline-secondary" style="margin-left:100px">Complaint logging</button>
+                          </div>
+                </div>
+          </div>
+    </div>
+
+<button class="open-button" onclick="openForm()">Chat Support</button>
+
+ <div class="chat-popup" id="myForm" style="position:fixed;">
+  <form action="" class="form-container">
+    <h1 style="margin:0px;font-size:30px">Agent Iris</h1>
+    <div style="border: 0px solid rgb(201, 0, 1); overflow: hidden; margin: px auto; max-width: 370px;">
+    <iframe name = "Right" scrolling="no" src="https://watson-banking-chatbot-20190204170158695.eu-gb.mybluemix.net/" style="border: 0px none; height: 800px; width: 800px; margin-left: -370px; margin-top: -240px;">
+    </iframe>
+    </div>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+  <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+      var ifr = document.getElementsByName('Right')[0];
+    ifr.src = ifr.src;
+
+    }
+  </script>
+
+
+       <footer> &copy DBS Bank Ltd</footer>
+  </body>
+  <!-- <script src="js/webcam.js"></script> -->
+  <script type="text/javascript">
+      var queryString = new Array();
+      function CustName() {
+          if (queryString.length == 0) {
+              if (window.location.search.split('?').length > 1) {
+                  var params = window.location.search.split('?')[1].split('&');
+                  for (var i = 0; i < params.length; i++) {
+                      var key = params[i].split('=')[0];
+                      var value = decodeURIComponent(params[i].split('=')[1]);
+                      queryString[key] = value;
+                  }
+              }
+          }
+          if (queryString["name"] != null) {
+              var data = "Welcome " + queryString["name"];
+              document.getElementById("wc").innerHTML = data;
+          }
+      }
+      CustName();
+  </script>
+</html>

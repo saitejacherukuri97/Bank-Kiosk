@@ -1,0 +1,42 @@
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Numeric JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+</head>
+
+<body>
+  <h1 style="text-align:center"> Overall Emotion score for user </h1>
+  <div id="myDiv" style="align-items:center"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+    var data = [{
+  values: [10, 24, 96, 4, 10, 1],
+  labels: ['Happy', 'Sad', 'Neutral', 'Angry', 'Fear', 'Disgust'],
+  domain: {column: 0},
+  name: 'Emotion',
+  hoverinfo: 'label+percent+name',
+  hole: .4,
+  type: 'pie'
+}];
+
+var layout = {
+  title: 'Emotion analysis',
+  grid: {rows: 1, columns: 2},
+  showlegend: true,
+  annotations: [
+    {
+      font: {
+        size: 14
+      },
+      showarrow: false,
+      text: '%',
+      x: 0.17,
+      y: 0.5
+    }
+
+  ]
+};
+
+Plotly.newPlot('myDiv', data, layout, {showSendToCloud:true});
+  </script>
+</body>

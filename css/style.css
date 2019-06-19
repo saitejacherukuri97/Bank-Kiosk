@@ -1,0 +1,32 @@
+html{
+  position: relative;
+  min-height: 100%;
+}
+body{
+  background-color: skyblue;
+  /* height: 100%; */
+}
+  header{
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    width: 100%;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+
+ footer{
+   background-color: black;
+   text-align: center;
+   color: red;
+   /* margin-top: 70px; */
+   font-size: 30px;
+   width: 100%;
+   left: 0;
+   bottom: 0;
+   position: absolute;
+ }
